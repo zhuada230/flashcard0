@@ -1,0 +1,2556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户运营面试学习闪卡 - 应届生/实习生版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.95;
+            margin-bottom: 5px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .progress-container {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+            height: 8px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #4ade80, #22c55e);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .card.active {
+            display: block;
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card-number {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .difficulty {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .star {
+            color: #fbbf24;
+            font-size: 18px;
+        }
+
+        .star.empty {
+            color: #d1d5db;
+        }
+
+        .card-title {
+            font-size: 26px;
+            color: #1f2937;
+            margin: 20px 0;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .section {
+            margin: 25px 0;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4b5563;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 4px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-icon {
+            font-size: 20px;
+        }
+
+        .scenario-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #0ea5e9;
+            margin-bottom: 15px;
+        }
+
+        .scenario-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #1e40af;
+        }
+
+        .timer {
+            background: rgba(251, 191, 36, 0.15);
+            color: #92400e;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .answer-area {
+            margin: 20px 0;
+        }
+
+        .answer-textarea {
+            width: 100%;
+            min-height: 180px;
+            padding: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.3s;
+            line-height: 1.6;
+        }
+
+        .answer-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .answer-textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 14px;
+            display: flex;
+            align-items: flex-start;
+            background: #f9fafb;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .checklist li:hover {
+            background: #f3f4f6;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 12px;
+            margin-top: 4px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .checklist label {
+            font-size: 15px;
+            line-height: 1.6;
+            cursor: pointer;
+            flex: 1;
+            color: #374151;
+        }
+
+        .score-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #fbbf24;
+        }
+
+        .score-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .score-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .score-label {
+            font-weight: 600;
+            color: #92400e;
+            min-width: 120px;
+        }
+
+        .score-range {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .score-option {
+            padding: 6px 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .score-option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .score-option.selected {
+            border-color: #667eea;
+            background: #667eea;
+            color: white;
+        }
+
+        .challenge-box {
+            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ec4899;
+        }
+
+        .challenge-question {
+            font-size: 15px;
+            color: #831843;
+            font-weight: 500;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .reference-box {
+            background: #f0fdf4;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #22c55e;
+            margin-top: 15px;
+        }
+
+        .reference-content {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #166534;
+        }
+
+        .reference-content ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .reference-content li {
+            margin-bottom: 8px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            flex: 1;
+        }
+
+        .btn-secondary:hover {
+            background: #f0f4ff;
+        }
+
+        .btn-success {
+            background: #22c55e;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #16a34a;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .completion-card {
+            background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            display: none;
+        }
+
+        .completion-card.show {
+            display: block;
+            animation: slideIn 0.4s ease;
+        }
+
+        .completion-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .completion-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #166534;
+            margin-bottom: 15px;
+        }
+
+        .completion-text {
+            font-size: 16px;
+            color: #15803d;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #6366f1;
+        }
+
+        .tip-content {
+            font-size: 14px;
+            color: #3730a3;
+            line-height: 1.6;
+        }
+
+        .tip-icon {
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .card {
+                padding: 25px 20px;
+            }
+
+            .card-title {
+                font-size: 22px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 用户运营面试学习闪卡</h1>
+            <p>应届生/实习生专版 · 10道核心面试题</p>
+            <p class="subtitle">系统化学习 · 自我检测 · 持续进步</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-info">
+                <span>学习进度</span>
+                <span id="progress-text">0/10 题</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- 题目卡片 -->
+        <div class="card active" data-card="1">
+            <div class="card-header">
+                <span class="card-number">题目 1/10</span>
+                <div class="difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+            </div>
+
+            <h2 class="card-title">你怎么理解用户运营？</h2>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🎯</span>
+                    面试场景
+                </div>
+                <div class="scenario-box">
+                    <p class="scenario-text">
+                        这通常是面试的第一个问题，面试官想了解你对用户运营岗位的基本认知和理解深度。作为应届生，面试官更关注你的学习能力、思维逻辑和对岗位的重视程度，而非深度的实战经验。
+                    </p>
+                    <span class="timer">⏱️ 建议回答时长：3-4分钟</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✍️</span>
+                    你的回答练习
+                </div>
+                <div class="answer-area">
+                    <textarea 
+                        class="answer-textarea" 
+                        placeholder="在这里写下你的回答... 
+
+建议结构：
+1. 开场：简明定义（30秒）
+2. 主体：从用户生命周期角度阐述（1分钟）+ 强调数据驱动（1分钟）+ 结合具体场景（1分钟）
+3. 结尾：个人特质和学习规划（30秒）"
+                        data-question="1"
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✅</span>
+                    自检清单
+                </div>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="check1-1">
+                        <label for="check1-1">是否给出了用户运营的准确定义（数据驱动+全生命周期管理+价值最大化）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check1-2">
+                        <label for="check1-2">是否从用户生命周期角度阐述了工作内容（获取、激活、留存、变现、推荐）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check1-3">
+                        <label for="check1-3">是否强调了数据驱动和精细化运营的重要性？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check1-4">
+                        <label for="check1-4">是否通过具体案例或场景说明了运营策略（如社团运营经历）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check1-5">
+                        <label for="check1-5">是否联系个人特质展现了学习能力和成长规划？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check1-6">
+                        <label for="check1-6">是否避免了照搬标准答案，体现了个人思考？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check1-7">
+                        <label for="check1-7">表达逻辑是否清晰，避免了空洞的理论堆砌？</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">📊</span>
+                    评分标准
+                </div>
+                <div class="score-section">
+                    <div class="score-grid">
+                        <div class="score-item">
+                            <span class="score-label">体系化程度</span>
+                            <div class="score-range">
+                                <div class="score-option" data-score="system">不及格</div>
+                                <div class="score-option" data-score="system">及格</div>
+                                <div class="score-option" data-score="system">良好</div>
+                                <div class="score-option" data-score="system">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">认知深度</span>
+                            <div class="score-range">
+                                <div class="score-option" data-score="depth">不及格</div>
+                                <div class="score-option" data-score="depth">及格</div>
+                                <div class="score-option" data-score="depth">良好</div>
+                                <div class="score-option" data-score="depth">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">逻辑表达</span>
+                            <div class="score-range">
+                                <div class="score-option" data-score="logic">不及格</div>
+                                <div class="score-option" data-score="logic">及格</div>
+                                <div class="score-option" data-score="logic">良好</div>
+                                <div class="score-option" data-score="logic">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">学习潜力展现</span>
+                            <div class="score-range">
+                                <div class="score-option" data-score="potential">不及格</div>
+                                <div class="score-option" data-score="potential">及格</div>
+                                <div class="score-option" data-score="potential">良好</div>
+                                <div class="score-option" data-score="potential">优秀</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🚀</span>
+                    深度追问
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-question">
+                        ▸ 你提到数据驱动很重要，那你认为用户运营需要重点关注哪些数据指标？为什么？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 如果让你负责一个校园产品的用户运营，你会从哪些方面入手？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 用户运营和产品运营、内容运营有什么区别？
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">💡</span>
+                    参考答案要点
+                </div>
+                <div class="reference-box">
+                    <div class="reference-content">
+                        <strong>优秀回答的核心要素：</strong>
+                        <ul>
+                            <li><strong>准确定义：</strong>数据驱动 + 全生命周期管理 + 价值最大化的系统性工作</li>
+                            <li><strong>三个核心维度：</strong>①用户生命周期管理 ②数据驱动的精细化运营 ③跨部门协作推动增长</li>
+                            <li><strong>具体案例：</strong>社团运营经历，通过数据分析提升群活跃度40%</li>
+                            <li><strong>个人规划：</strong>系统学习方法论和工具，提升数据分析能力和用户洞察力</li>
+                            <li><strong>避免陷阱：</strong>不要只谈活动策划、社群管理等表层工作；不要照搬标准答案；不要忽略数据思维</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-content">
+                    <strong>💡 应届生加分技巧：</strong>即使没有正式工作经验，也可以通过社团运营、公众号管理、校园活动策划等经历体现用户运营思维。重点展现学习能力和思维深度，而非经验丰富程度。
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="saveAnswer(1)">💾 保存答案</button>
+                <button class="btn btn-primary" onclick="nextCard()">下一题 →</button>
+            </div>
+        </div>
+
+        <!-- 题目2 -->
+        <div class="card" data-card="2">
+            <div class="card-header">
+                <span class="card-number">题目 2/10</span>
+                <div class="difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+            </div>
+
+            <h2 class="card-title">你认为用户运营的核心工作和策略是什么？</h2>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🎯</span>
+                    面试场景
+                </div>
+                <div class="scenario-box">
+                    <p class="scenario-text">
+                        面试官想考察你对用户运营工作内容的理解深度和学习成果。这道题重点看你的理论认知、逻辑思维能力和实践意识，而非要求你有丰富的实战经验。
+                    </p>
+                    <span class="timer">⏱️ 建议回答时长：4-5分钟</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✍️</span>
+                    你的回答练习
+                </div>
+                <div class="answer-area">
+                    <textarea 
+                        class="answer-textarea" 
+                        placeholder="在这里写下你的回答...
+
+建议结构：
+1. 开场：体现学习成果（30秒）
+2. 主体：核心工作内容（1.5分钟）+ 关键策略要素（1分钟）+ 学习实践（1分钟）
+3. 结尾：学习规划和成长想法（30秒）"
+                        data-question="2"
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✅</span>
+                    自检清单
+                </div>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="check2-1">
+                        <label for="check2-1">是否体现了对用户运营本质的正确理解（数据驱动+全生命周期+协同增长）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check2-2">
+                        <label for="check2-2">是否阐述了四个核心工作环节（用户洞察、分层运营、触达转化、数据监控）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check2-3">
+                        <label for="check2-3">是否分析了三个核心策略要素（数据驱动、生命周期视角、精细化思维）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check2-4">
+                        <label for="check2-4">是否结合了学习实践案例（如公众号运营提升30%阅读量）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check2-5">
+                        <label for="check2-5">是否提到了具体的学习资源和方法论（如RFM模型、漏斗分析）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check2-6">
+                        <label for="check2-6">是否表达了清晰的学习规划和成长方向？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check2-7">
+                        <label for="check2-7">逻辑表达是否清晰，避免了过度理论化？</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">📊</span>
+                    评分标准
+                </div>
+                <div class="score-section">
+                    <div class="score-grid">
+                        <div class="score-item">
+                            <span class="score-label">理论认知</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">逻辑清晰度</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">学习能力体现</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">实践意识展现</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🚀</span>
+                    深度追问
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-question">
+                        ▸ 你提到用户分层运营，具体可以按哪些维度进行分层？每个层级的运营策略有什么不同？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 如何判断一个用户运营策略是否有效？应该关注哪些数据指标？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 用户运营与市场推广的区别是什么？
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">💡</span>
+                    参考答案要点
+                </div>
+                <div class="reference-box">
+                    <div class="reference-content">
+                        <strong>优秀回答的核心要素：</strong>
+                        <ul>
+                            <li><strong>四个核心工作：</strong>①用户洞察分析 ②用户分层运营 ③触达和转化优化 ④数据监控和策略迭代</li>
+                            <li><strong>三个策略要素：</strong>①数据驱动决策 ②用户生命周期视角 ③精细化运营思维</li>
+                            <li><strong>学习实践案例：</strong>公众号运营，建立标签体系，月均阅读量提升30%</li>
+                            <li><strong>专业方法论：</strong>RFM模型、用户分层、漏斗分析等</li>
+                            <li><strong>学习规划：</strong>掌握SQL、Excel等工具，学习用户心理学和行为经济学</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-content">
+                    <strong>💡 应届生加分技巧：</strong>通过阅读专业书籍、关注行业平台、运营个人账号等方式展现学习的主动性。即使是小规模实践，只要能体现用户运营思维和数据意识，就能获得认可。
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevCard()">← 上一题</button>
+                <button class="btn btn-secondary" onclick="saveAnswer(2)">💾 保存答案</button>
+                <button class="btn btn-primary" onclick="nextCard()">下一题 →</button>
+            </div>
+        </div>
+
+        <!-- 题目3 -->
+        <div class="card" data-card="3">
+            <div class="card-header">
+                <span class="card-number">题目 3/10</span>
+                <div class="difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+            </div>
+
+            <h2 class="card-title">你是如何实现用户增长的？</h2>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🎯</span>
+                    面试场景
+                </div>
+                <div class="scenario-box">
+                    <p class="scenario-text">
+                        这道题考察你对用户增长的理论理解和实践能力。作为应届生，面试官重点看你是否具备增长思维、数据意识和学习能力，而非要求你有成熟的增长项目经验。
+                    </p>
+                    <span class="timer">⏱️ 建议回答时长：4-5分钟</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✍️</span>
+                    你的回答练习
+                </div>
+                <div class="answer-area">
+                    <textarea 
+                        class="answer-textarea" 
+                        placeholder="在这里写下你的回答...
+
+建议结构：
+1. 开场：承认经验有限但展现学习成果（30秒）
+2. 主体：理论理解（1分钟）+ 实践案例（1.5分钟）+ 方法论总结（1分钟）
+3. 结尾：学习规划（30秒）"
+                        data-question="3"
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✅</span>
+                    自检清单
+                </div>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="check3-1">
+                        <label for="check3-1">是否承认经验有限，但展现了对增长的理论学习？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check3-2">
+                        <label for="check3-2">是否理解增长不同于营销推广，是数据驱动的系统性过程？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check3-3">
+                        <label for="check3-3">是否提到AARRR模型或类似的增长框架？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check3-4">
+                        <label for="check3-4">是否分享了具体的实践案例（如公众号从20到500粉丝）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check3-5">
+                        <label for="check3-5">案例中是否包含具体的策略和数据（如首次互动率45%、裂变系数1.6）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check3-6">
+                        <label for="check3-6">是否总结了增长的关键要素（数据驱动、用户洞察、系统思维、持续迭代）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check3-7">
+                        <label for="check3-7">是否表达了学习SQL、Python等工具的规划？</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">📊</span>
+                    评分标准
+                </div>
+                <div class="score-section">
+                    <div class="score-grid">
+                        <div class="score-item">
+                            <span class="score-label">理论认知</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">实践案例真实性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">思维逻辑</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">学习态度</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🚀</span>
+                    深度追问
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-question">
+                        ▸ 你的公众号案例中，如何判断哪个渠道的用户质量更高？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 如果增长速度放缓，你会从哪些方面分析原因？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 你了解哪些用户增长的经典案例？能分享一下吗？
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">💡</span>
+                    参考答案要点
+                </div>
+                <div class="reference-box">
+                    <div class="reference-content">
+                        <strong>优秀回答的核心要素：</strong>
+                        <ul>
+                            <li><strong>理论框架：</strong>AARRR模型（获取、激活、留存、变现、推荐）</li>
+                            <li><strong>实践案例：</strong>公众号从20到500粉丝，通过垂直内容、新用户欢迎流程、用户分层、裂变机制等</li>
+                            <li><strong>具体数据：</strong>首次互动率15%→45%，月活跃率60%，裂变系数1.6</li>
+                            <li><strong>关键体会：</strong>①数据驱动 ②用户洞察 ③系统思维 ④持续迭代</li>
+                            <li><strong>避免陷阱：</strong>不要将增长等同于营销推广；不要夸大经验；不要忽略数据验证</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-content">
+                    <strong>💡 应届生加分技巧：</strong>即使是小规模的个人项目（公众号、社群、小程序等），只要能体现增长思维和数据驱动，就能获得认可。关键是展现思考过程和方法论，而非规模大小。
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevCard()">← 上一题</button>
+                <button class="btn btn-secondary" onclick="saveAnswer(3)">💾 保存答案</button>
+                <button class="btn btn-primary" onclick="nextCard()">下一题 →</button>
+            </div>
+        </div>
+
+        <!-- 题目4 -->
+        <div class="card" data-card="4">
+            <div class="card-header">
+                <span class="card-number">题目 4/10</span>
+                <div class="difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+            </div>
+
+            <h2 class="card-title">用户运营是什么？有哪些核心本质？</h2>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🎯</span>
+                    面试场景
+                </div>
+                <div class="scenario-box">
+                    <p class="scenario-text">
+                        这道题考察你对用户运营概念的深度理解和本质把握。面试官想看你是否真正理解这个岗位的价值意义，而不是停留在表面的工作描述。
+                    </p>
+                    <span class="timer">⏱️ 建议回答时长：4-5分钟</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✍️</span>
+                    你的回答练习
+                </div>
+                <div class="answer-area">
+                    <textarea 
+                        class="answer-textarea" 
+                        placeholder="在这里写下你的回答...
+
+建议结构：
+1. 开场：表明学习态度（30秒）
+2. 主体：核心内容（1.5分钟）+ 本质要素（1分钟）+ 学习实践（1分钟）
+3. 结尾：认知收获和学习态度（30秒）"
+                        data-question="4"
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✅</span>
+                    自检清单
+                </div>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="check4-1">
+                        <label for="check4-1">是否给出了准确的定义（以用户为中心+数据驱动+全生命周期管理）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check4-2">
+                        <label for="check4-2">是否阐述了四个核心环节（用户洞察、分层运营、触达转化、效果评估）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check4-3">
+                        <label for="check4-3">是否分析了三个本质（价值创造、关系经营、数据驱动）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check4-4">
+                        <label for="check4-4">是否分享了学习实践案例（如学习分享账号运营）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check4-5">
+                        <label for="check4-5">是否提到具体的学习资源（如《用户运营方法论》、人人都是产品经理）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check4-6">
+                        <label for="check4-6">是否总结了三种核心能力（数据分析、用户洞察、创新思维）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check4-7">
+                        <label for="check4-7">是否避免了将用户运营等同于客户服务？</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">📊</span>
+                    评分标准
+                </div>
+                <div class="score-section">
+                    <div class="score-grid">
+                        <div class="score-item">
+                            <span class="score-label">理论认知准确性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">逻辑表达清晰度</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">学习态度积极性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">思维深度体现</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🚀</span>
+                    深度追问
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-question">
+                        ▸ 你提到用户运营需要数据分析能力，具体需要掌握哪些数据分析工具和方法？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 用户运营如何为企业创造商业价值？能举个例子吗？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 你认为用户运营的工作难点在哪里？
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">💡</span>
+                    参考答案要点
+                </div>
+                <div class="reference-box">
+                    <div class="reference-content">
+                        <strong>优秀回答的核心要素：</strong>
+                        <ul>
+                            <li><strong>准确定义：</strong>以用户为中心，数据驱动的精细化手段，管理全生命周期，实现价值协同增长</li>
+                            <li><strong>四个环节：</strong>①用户洞察 ②用户分层运营 ③触达和转化 ④效果评估优化</li>
+                            <li><strong>三个本质：</strong>①价值创造 ②关系经营 ③数据驱动</li>
+                            <li><strong>学习成果：</strong>阅读专业书籍、关注行业平台、了解RFM模型等方法论</li>
+                            <li><strong>能力要求：</strong>数据分析能力、用户洞察能力、创新思维能力</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-content">
+                    <strong>💡 应届生加分技巧：</strong>这道题重点展现理论学习的深度。可以通过具体的学习资源、专业术语、方法论来证明学习的系统性。同时用小规模实践体现理解深度。
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevCard()">← 上一题</button>
+                <button class="btn btn-secondary" onclick="saveAnswer(4)">💾 保存答案</button>
+                <button class="btn btn-primary" onclick="nextCard()">下一题 →</button>
+            </div>
+        </div>
+
+        <!-- 题目5 -->
+        <div class="card" data-card="5">
+            <div class="card-header">
+                <span class="card-number">题目 5/10</span>
+                <div class="difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+            </div>
+
+            <h2 class="card-title">如何提升用户的粘性？</h2>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🎯</span>
+                    面试场景
+                </div>
+                <div class="scenario-box">
+                    <p class="scenario-text">
+                        这道题考察你对用户粘性的理解和系统性思考能力。面试官想看你是否能从多个维度思考问题，是否具备用户洞察和数据思维。
+                    </p>
+                    <span class="timer">⏱️ 建议回答时长：4-5分钟</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✍️</span>
+                    你的回答练习
+                </div>
+                <div class="answer-area">
+                    <textarea 
+                        class="answer-textarea" 
+                        placeholder="在这里写下你的回答...
+
+建议结构：
+1. 开场：明确定义和重要性（30秒）
+2. 主体：根本逻辑（1分钟）+ 四个维度策略（2分钟）+ 个人观察（1分钟）
+3. 结尾：强调数据驱动（30秒）"
+                        data-question="5"
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✅</span>
+                    自检清单
+                </div>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="check5-1">
+                        <label for="check5-1">是否准确定义了用户粘性（持续使用意愿+DAU/MAU等指标）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check5-2">
+                        <label for="check5-2">是否分析了三个核心要素（价值感知、使用习惯、情感连接）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check5-3">
+                        <label for="check5-3">是否从四个维度阐述策略（产品价值、内容运营、互动体验、服务触达）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check5-4">
+                        <label for="check5-4">是否分享了个人观察案例（如学习APP的签到、打卡、PK机制）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check5-5">
+                        <label for="check5-5">是否体现了对产品价值是粘性根本基础的理解？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check5-6">
+                        <label for="check5-6">是否强调了数据监控和持续优化的重要性？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check5-7">
+                        <label for="check5-7">是否避免了只提表面手段（如优惠券、红包）？</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">📊</span>
+                    评分标准
+                </div>
+                <div class="score-section">
+                    <div class="score-grid">
+                        <div class="score-item">
+                            <span class="score-label">理论认知准确性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">策略思维系统性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">用户洞察深度</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">表达逻辑清晰度</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🚀</span>
+                    深度追问
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-question">
+                        ▸ 你提到游戏化设计可以提升粘性，能举几个具体的游戏化机制吗？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 如何判断一个用户的粘性是高还是低？有哪些具体指标？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 不同类型的产品（工具型、内容型、社交型）提升粘性的策略有什么差异？
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">💡</span>
+                    参考答案要点
+                </div>
+                <div class="reference-box">
+                    <div class="reference-content">
+                        <strong>优秀回答的核心要素：</strong>
+                        <ul>
+                            <li><strong>准确定义：</strong>用户对产品的持续使用意愿，通过DAU/MAU、使用频次、会话时长衡量</li>
+                            <li><strong>三个要素：</strong>①价值感知 ②使用习惯 ③情感连接</li>
+                            <li><strong>四个维度：</strong>①产品价值 ②内容运营 ③互动体验 ④服务触达</li>
+                            <li><strong>观察案例：</strong>学习APP的签到、打卡、PK机制；内容平台的个性化推荐和评论互动</li>
+                            <li><strong>核心认知：</strong>真正的粘性来自产品价值和良性使用习惯，而非强制手段</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-content">
+                    <strong>💡 应届生加分技巧：</strong>通过观察自己常用APP的粘性机制，展现对产品的敏感度和思考能力。即使没有实操经验，也能通过用户视角的观察体现专业认知。
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevCard()">← 上一题</button>
+                <button class="btn btn-secondary" onclick="saveAnswer(5)">💾 保存答案</button>
+                <button class="btn btn-primary" onclick="nextCard()">下一题 →</button>
+            </div>
+        </div>
+
+        <!-- 题目6 -->
+        <div class="card" data-card="6">
+            <div class="card-header">
+                <span class="card-number">题目 6/10</span>
+                <div class="difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+            </div>
+
+            <h2 class="card-title">你是如何实现用户转化的？</h2>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🎯</span>
+                    面试场景
+                </div>
+                <div class="scenario-box">
+                    <p class="scenario-text">
+                        这道题考察你对用户转化的理解和策略思维。面试官想看你是否具备转化漏斗思维、用户心理洞察和数据意识。
+                    </p>
+                    <span class="timer">⏱️ 建议回答时长：4-5分钟</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✍️</span>
+                    你的回答练习
+                </div>
+                <div class="answer-area">
+                    <textarea 
+                        class="answer-textarea" 
+                        placeholder="在这里写下你的回答...
+
+建议结构：
+1. 开场：承认经验有限但明确定义（30秒）
+2. 主体：三个核心要素（1分钟）+ 四个关键环节（2分钟）+ 学习实践（1分钟）
+3. 结尾：强调数据驱动（30秒）"
+                        data-question="6"
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✅</span>
+                    自检清单
+                </div>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="check6-1">
+                        <label for="check6-1">是否准确定义了用户转化（引导用户完成目标行为的过程）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check6-2">
+                        <label for="check6-2">是否分析了三个核心要素（需求匹配度、路径流畅性、信任建立）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check6-3">
+                        <label for="check6-3">是否基于转化漏斗阐述了四个环节（流量获取、兴趣激发、决策促进、行动执行）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check6-4">
+                        <label for="check6-4">是否分享了具体的实践案例（如推广学习资料的策略调整）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check6-5">
+                        <label for="check6-5">是否提到A/B测试、用户行为分析、转化漏斗监控等方法？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check6-6">
+                        <label for="check6-6">是否体现了对用户心理和决策障碍的理解？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check6-7">
+                        <label for="check6-7">是否避免了将转化等同于销售推广？</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">📊</span>
+                    评分标准
+                </div>
+                <div class="score-section">
+                    <div class="score-grid">
+                        <div class="score-item">
+                            <span class="score-label">理论认知准确性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">策略思维逻辑性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">用户洞察深度</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">表达清晰和可操作性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🚀</span>
+                    深度追问
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-question">
+                        ▸ 你如何判断转化率低是由哪个环节造成的？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 不同类型的转化（注册、付费、分享）策略有什么差异？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 如何平衡短期转化和长期用户价值？
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">💡</span>
+                    参考答案要点
+                </div>
+                <div class="reference-box">
+                    <div class="reference-content">
+                        <strong>优秀回答的核心要素：</strong>
+                        <ul>
+                            <li><strong>准确定义：</strong>引导用户完成目标行为的过程，是系统性工程而非销售推广</li>
+                            <li><strong>三个要素：</strong>①需求匹配度 ②转化路径流畅性 ③信任建立机制</li>
+                            <li><strong>四个环节：</strong>①流量获取 ②兴趣激发 ③决策促进 ④行动执行</li>
+                            <li><strong>实践案例：</strong>推广学习资料，先分享精华内容再引导获取，配合限时分享和用户反馈</li>
+                            <li><strong>专业方法：</strong>A/B测试、用户行为分析、转化漏斗监控</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-content">
+                    <strong>💡 应届生加分技巧：</strong>通过小规模实践展现对转化策略的理解。即使是推广学习资料、分享课程笔记等简单场景，也能体现转化思维和用户心理洞察。
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevCard()">← 上一题</button>
+                <button class="btn btn-secondary" onclick="saveAnswer(6)">💾 保存答案</button>
+                <button class="btn btn-primary" onclick="nextCard()">下一题 →</button>
+            </div>
+        </div>
+
+        <!-- 题目7 -->
+        <div class="card" data-card="7">
+            <div class="card-header">
+                <span class="card-number">题目 7/10</span>
+                <div class="difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+            </div>
+
+            <h2 class="card-title">你是如何理解用户思维的？</h2>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🎯</span>
+                    面试场景
+                </div>
+                <div class="scenario-box">
+                    <p class="scenario-text">
+                        这道题考察你的同理心和用户洞察能力。面试官想看你是否具备站在用户角度思考问题的基本素质，这是用户运营工作的核心能力。
+                    </p>
+                    <span class="timer">⏱️ 建议回答时长：4-5分钟</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✍️</span>
+                    你的回答练习
+                </div>
+                <div class="answer-area">
+                    <textarea 
+                        class="answer-textarea" 
+                        placeholder="在这里写下你的回答...
+
+建议结构：
+1. 开场：明确定义（30秒）
+2. 主体：关键要素（1.5分钟）+ 具体案例（2分钟）+ 应用价值（1分钟）
+3. 结尾：学习规划（30秒）"
+                        data-question="7"
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✅</span>
+                    自检清单
+                </div>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="check7-1">
+                        <label for="check7-1">是否准确定义了用户思维（以用户为中心的系统性思考方式）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check7-2">
+                        <label for="check7-2">是否阐述了四个关键要素（同理心、全流程思维、差异化认知、动态理解）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check7-3">
+                        <label for="check7-3">是否分享了具体的实践案例（如协作工具使用、公众号运营）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check7-4">
+                        <label for="check7-4">案例中是否体现了换位思考和策略调整的过程？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check7-5">
+                        <label for="check7-5">是否提到通过后台数据分析验证用户行为？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check7-6">
+                        <label for="check7-6">是否表达了在生活中运用用户思维的习惯？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check7-7">
+                        <label for="check7-7">是否避免了将用户思维等同于简单的客服服务？</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">📊</span>
+                    评分标准
+                </div>
+                <div class="score-section">
+                    <div class="score-grid">
+                        <div class="score-item">
+                            <span class="score-label">概念理解准确性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">思维框架系统性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">实际应用具象化</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">表达逻辑清晰性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🚀</span>
+                    深度追问
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-question">
+                        ▸ 你如何平衡用户需求和商业目标？如果两者冲突怎么办？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 用户说的和用户做的往往不一致，你如何理解这个现象？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 如何判断一个需求是真需求还是伪需求？
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">💡</span>
+                    参考答案要点
+                </div>
+                <div class="reference-box">
+                    <div class="reference-content">
+                        <strong>优秀回答的核心要素：</strong>
+                        <ul>
+                            <li><strong>准确定义：</strong>以用户为中心的系统性思考方式，理解需求、场景、体验和决策逻辑</li>
+                            <li><strong>四个要素：</strong>①深度同理心 ②全流程用户体验思维 ③差异化用户认知 ④动态需求理解</li>
+                            <li><strong>实践案例：</strong>协作工具使用（从复杂到简化，参与度提升）、公众号运营（内容策略调整）</li>
+                            <li><strong>学习资源：</strong>《用户体验要素》、《瞬间之美》等书籍</li>
+                            <li><strong>核心认知：</strong>用户思维是理解他人的能力，需要持续观察和深化</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-content">
+                    <strong>💡 应届生加分技巧：</strong>通过校园活动、社团管理、小组项目等经历展现用户思维。重点是体现换位思考的过程和策略调整的逻辑，而非项目规模。
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevCard()">← 上一题</button>
+                <button class="btn btn-secondary" onclick="saveAnswer(7)">💾 保存答案</button>
+                <button class="btn btn-primary" onclick="nextCard()">下一题 →</button>
+            </div>
+        </div>
+
+        <!-- 题目8 -->
+        <div class="card" data-card="8">
+            <div class="card-header">
+                <span class="card-number">题目 8/10</span>
+                <div class="difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+            </div>
+
+            <h2 class="card-title">用户画像是什么？</h2>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🎯</span>
+                    面试场景
+                </div>
+                <div class="scenario-box">
+                    <p class="scenario-text">
+                        这道题考察你对用户画像这个核心工具的理解。面试官想看你是否准确理解概念、掌握构成要素和构建方法。
+                    </p>
+                    <span class="timer">⏱️ 建议回答时长：4-5分钟</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✍️</span>
+                    你的回答练习
+                </div>
+                <div class="answer-area">
+                    <textarea 
+                        class="answer-textarea" 
+                        placeholder="在这里写下你的回答...
+
+建议结构：
+1. 开场：准确定义（30秒）
+2. 主体：四个核心维度（1.5分钟）+ 构建方法（1分钟）+ 核心价值（1.5分钟）
+3. 结尾：学习规划（30秒）"
+                        data-question="8"
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✅</span>
+                    自检清单
+                </div>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="check8-1">
+                        <label for="check8-1">是否准确定义了用户画像（基于真实数据的典型用户模型）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check8-2">
+                        <label for="check8-2">是否阐述了四个核心维度（基础属性、行为特征、需求偏好、心理特征）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check8-3">
+                        <label for="check8-3">每个维度是否都有具体的例子说明？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check8-4">
+                        <label for="check8-4">是否说明了构建方法（定量数据、定性数据、第三方数据）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check8-5">
+                        <label for="check8-5">是否分析了三个核心价值（精准化运营、个性化体验、产品决策支持）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check8-6">
+                        <label for="check8-6">是否分享了学习实践案例（如把导师当作用户分析）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check8-7">
+                        <label for="check8-7">是否总结了优秀用户画像的特点（基于数据、具体可感、动态更新、可指导行动）？</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">📊</span>
+                    评分标准
+                </div>
+                <div class="score-section">
+                    <div class="score-grid">
+                        <div class="score-item">
+                            <span class="score-label">概念定义准确性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">知识结构系统性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">应用思考深度</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">表达逻辑清晰性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🚀</span>
+                    深度追问
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-question">
+                        ▸ 用户画像和用户标签有什么区别？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 如果用户画像和实际用户行为出现偏差，应该怎么办？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 对于一个新产品，如何从零开始构建用户画像？
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">💡</span>
+                    参考答案要点
+                </div>
+                <div class="reference-box">
+                    <div class="reference-content">
+                        <strong>优秀回答的核心要素：</strong>
+                        <ul>
+                            <li><strong>准确定义：</strong>基于真实数据的典型用户模型，立体化、动态化的用户理解工具</li>
+                            <li><strong>四个维度：</strong>①基础属性 ②行为特征 ③需求偏好 ④心理特征</li>
+                            <li><strong>构建方法：</strong>定量数据（行为日志、交易记录）+ 定性数据（访谈、问卷）+ 第三方数据</li>
+                            <li><strong>三个价值：</strong>①精准化运营 ②个性化体验 ③产品决策支持</li>
+                            <li><strong>优秀特点：</strong>基于真实数据、具体可感知、动态更新、可指导行动</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-content">
+                    <strong>💡 应届生加分技巧：</strong>通过学习专业书籍（如《用户体验要素》）和观察优秀产品案例（如Netflix、Spotify）展现学习深度。即使没有实操经验,也能通过理论学习体现专业素养。
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevCard()">← 上一题</button>
+                <button class="btn btn-secondary" onclick="saveAnswer(8)">💾 保存答案</button>
+                <button class="btn btn-primary" onclick="nextCard()">下一题 →</button>
+            </div>
+        </div>
+
+        <!-- 题目9 -->
+        <div class="card" data-card="9">
+            <div class="card-header">
+                <span class="card-number">题目 9/10</span>
+                <div class="difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+            </div>
+
+            <h2 class="card-title">用户画像能为我们做什么？</h2>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🎯</span>
+                    面试场景
+                </div>
+                <div class="scenario-box">
+                    <p class="scenario-text">
+                        这道题考察你对用户画像应用价值的理解。面试官想看你是否能将工具理解转化为实际应用思考，体现商业思维和业务理解能力。
+                    </p>
+                    <span class="timer">⏱️ 建议回答时长：4-5分钟</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✍️</span>
+                    你的回答练习
+                </div>
+                <div class="answer-area">
+                    <textarea 
+                        class="answer-textarea" 
+                        placeholder="在这里写下你的回答...
+
+建议结构：
+1. 开场：总结核心价值定位（30秒）
+2. 主体：精准运营应用（1.5分钟）+ 产品优化和决策（1.5分钟）+ 创新应用思考（1分钟）
+3. 结尾：总结价值和学习思考（30秒）"
+                        data-question="9"
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✅</span>
+                    自检清单
+                </div>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="check9-1">
+                        <label for="check9-1">是否总结了用户画像的核心价值（从经验驱动到数据驱动的转型）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check9-2">
+                        <label for="check9-2">是否从用户全生命周期阐述了精准运营应用（获取、激活、留存、转化）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check9-3">
+                        <label for="check9-3">是否说明了产品优化价值（功能设计、体验优化、商业模式设计）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check9-4">
+                        <label for="check9-4">是否提到了跨部门协作中的桥梁作用？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check9-5">
+                        <label for="check9-5">是否分享了个人的应用实践或观察（如分析不同老师的授课风格）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check9-6">
+                        <label for="check9-6">是否提到创新应用案例（如Netflix、Spotify）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check9-7">
+                        <label for="check9-7">是否体现了对AI和大数据技术发展趋势的关注？</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">📊</span>
+                    评分标准
+                </div>
+                <div class="score-section">
+                    <div class="score-grid">
+                        <div class="score-item">
+                            <span class="score-label">应用场景全面性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">价值阐述深度</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">逻辑结构清晰性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">实践思考创新性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🚀</span>
+                    深度追问
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-question">
+                        ▸ 不同行业（电商、教育、社交）的用户画像应用有什么差异？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 如何衡量用户画像对业务的实际贡献？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 用户画像在隐私保护方面应该注意什么？
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">💡</span>
+                    参考答案要点
+                </div>
+                <div class="reference-box">
+                    <div class="reference-content">
+                        <strong>优秀回答的核心要素：</strong>
+                        <ul>
+                            <li><strong>核心价值：</strong>从经验驱动到数据驱动的运营转型工具</li>
+                            <li><strong>精准运营：</strong>①精准获客 ②差异化激活 ③个性化留存 ④针对性转化</li>
+                            <li><strong>产品优化：</strong>①功能设计支撑 ②用户体验优化 ③商业模式设计</li>
+                            <li><strong>跨部门协作：</strong>为不同部门提供统一的用户理解基础</li>
+                            <li><strong>创新案例：</strong>Netflix内容推荐和投资、Spotify个性化播放列表</li>
+                            <li><strong>发展趋势：</strong>AI和大数据技术让用户画像更精准和智能</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-content">
+                    <strong>💡 应届生加分技巧：</strong>通过学习优秀产品案例、关注行业报告、观察身边产品的个性化推荐等方式展现对用户画像应用的理解。重点是体现商业思维和价值意识。
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevCard()">← 上一题</button>
+                <button class="btn btn-secondary" onclick="saveAnswer(9)">💾 保存答案</button>
+                <button class="btn btn-primary" onclick="nextCard()">下一题 →</button>
+            </div>
+        </div>
+
+        <!-- 题目10 -->
+        <div class="card" data-card="10">
+            <div class="card-header">
+                <span class="card-number">题目 10/10</span>
+                <div class="difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+            </div>
+
+            <h2 class="card-title">你觉得用户运营岗位需要哪些能力？</h2>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🎯</span>
+                    面试场景
+                </div>
+                <div class="scenario-box">
+                    <p class="scenario-text">
+                        这通常是面试的最后一个问题，考察你对岗位要求的全面理解和职业规划的清晰度。面试官想看你是否真正了解这个岗位，是否有明确的能力发展规划。
+                    </p>
+                    <span class="timer">⏱️ 建议回答时长：5-6分钟</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✍️</span>
+                    你的回答练习
+                </div>
+                <div class="answer-area">
+                    <textarea 
+                        class="answer-textarea" 
+                        placeholder="在这里写下你的回答...
+
+建议结构：
+1. 开场：总结核心能力特征（30秒）
+2. 主体：五大核心能力（2分钟）+ 重要思维和软技能（1.5分钟）+ 能力发展规划（1分钟）
+3. 结尾：能力发展趋势和学习方向（30秒）"
+                        data-question="10"
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">✅</span>
+                    自检清单
+                </div>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="check10-1">
+                        <label for="check10-1">是否总结了五大核心能力（数据分析、用户洞察、策略思维、执行协调、学习创新）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check10-2">
+                        <label for="check10-2">每个能力是否都有具体的技能要求和重要性说明？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check10-3">
+                        <label for="check10-3">是否分享了个人的学习实践案例（如公众号数据分析、活动策划）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check10-4">
+                        <label for="check10-4">是否阐述了重要的思维能力（用户思维、商业思维、沟通协作）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check10-5">
+                        <label for="check10-5">是否制定了清晰的能力发展规划（短期、中期、长期）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check10-6">
+                        <label for="check10-6">是否提到具体的学习工具和资源（Excel、SQL、Python等）？</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check10-7">
+                        <label for="check10-7">是否体现了对能力发展趋势的关注（AI、机器学习等）？</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">📊</span>
+                    评分标准
+                </div>
+                <div class="score-section">
+                    <div class="score-grid">
+                        <div class="score-item">
+                            <span class="score-label">岗位认知准确性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">能力框架系统性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">理论学习深度</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">表达逻辑清晰性</span>
+                            <div class="score-range">
+                                <div class="score-option">不及格</div>
+                                <div class="score-option">及格</div>
+                                <div class="score-option">良好</div>
+                                <div class="score-option">优秀</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">🚀</span>
+                    深度追问
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-question">
+                        ▸ 你认为这些能力中哪一项最重要？为什么？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 作为应届生，你计划如何快速提升这些能力？
+                    </div>
+                    <div class="challenge-question">
+                        ▸ 你目前在哪些能力上有优势？哪些需要重点补强？
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">💡</span>
+                    参考答案要点
+                </div>
+                <div class="reference-box">
+                    <div class="reference-content">
+                        <strong>优秀回答的核心要素：</strong>
+                        <ul>
+                            <li><strong>五大核心能力：</strong>①数据分析能力（Excel、SQL、漏斗分析） ②用户洞察能力（调研方法、用户画像） ③策略思维能力（用户分层、生命周期管理） ④执行协调能力（项目管理、沟通协调） ⑤学习创新能力（持续学习、创新思维）</li>
+                            <li><strong>重要思维：</strong>用户思维、商业思维、沟通协作能力</li>
+                            <li><strong>实践案例：</strong>公众号数据分析、活动策划、项目协作等</li>
+                            <li><strong>发展规划：</strong>短期学习工具、中期提升策略能力、长期关注技术趋势</li>
+                            <li><strong>避免陷阱：</strong>不要将用户运营等同于客服；不要只列举表面能力；要体现系统性思考</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="tip-content">
+                    <strong>💡 应届生加分技巧：</strong>这是展现职业规划和学习能力的最佳机会。通过清晰的能力框架、具体的学习规划、真实的实践案例证明你对这个岗位的重视和准备充分度。
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="prevCard()">← 上一题</button>
+                <button class="btn btn-secondary" onclick="saveAnswer(10)">💾 保存答案</button>
+                <button class="btn btn-success" onclick="completeStudy()">✅ 完成学习</button>
+            </div>
+        </div>
+
+        <!-- 完成页面 -->
+        <div class="completion-card">
+            <div class="completion-icon">🎉</div>
+            <h2 class="completion-title">恭喜完成所有题目！</h2>
+            <div class="completion-text">
+                你已经完成了用户运营面试学习闪卡的全部10道题目。<br>
+                持续练习和反思，你一定能在面试中脱颖而出！
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="completed-count">0</div>
+                    <div class="stat-label">已完成题目</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="saved-count">0</div>
+                    <div class="stat-label">已保存答案</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="checked-count">0</div>
+                    <div class="stat-label">自检完成率</div>
+                </div>
+            </div>
+
+            <div class="tip-box" style="margin-top: 25px;">
+                <div class="tip-content">
+                    <strong>📚 接下来建议：</strong><br>
+                    1. 定期回顾你保存的答案，持续优化表达<br>
+                    2. 找同学或朋友进行模拟面试练习<br>
+                    3. 关注最新的用户运营案例和行业动态<br>
+                    4. 尝试将学到的知识应用到实际项目中<br>
+                    5. 保持学习热情，持续提升专业能力
+                </div>
+            </div>
+
+            <div class="button-group" style="margin-top: 30px;">
+                <button class="btn btn-primary" onclick="location.reload()">🔄 重新开始学习</button>
+                <button class="btn btn-secondary" onclick="exportAnswers()">📥 导出我的答案</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentCard = 1;
+        const totalCards = 10;
+        const answers = {};
+        const checkedItems = new Set();
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            loadSavedData();
+            setupEventListeners();
+        });
+
+        // 设置事件监听
+        function setupEventListeners() {
+            // 监听复选框变化
+            document.querySelectorAll('.checklist input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    updateCheckedCount();
+                });
+            });
+
+            // 监听评分选项点击
+            document.querySelectorAll('.score-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const siblings = this.parentElement.querySelectorAll('.score-option');
+                    siblings.forEach(s => s.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+
+            // 自动保存答案
+            document.querySelectorAll('.answer-textarea').forEach(textarea => {
+                textarea.addEventListener('input', function() {
+                    const questionNum = this.dataset.question;
+                    answers[questionNum] = this.value;
+                    saveToLocalStorage();
+                });
+            });
+        }
+
+        // 下一题
+        function nextCard() {
+            if (currentCard < totalCards) {
+                document.querySelector(`[data-card="${currentCard}"]`).classList.remove('active');
+                currentCard++;
+                document.querySelector(`[data-card="${currentCard}"]`).classList.add('active');
+                updateProgress();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // 上一题
+        function prevCard() {
+            if (currentCard > 1) {
+                document.querySelector(`[data-card="${currentCard}"]`).classList.remove('active');
+                currentCard--;
+                document.querySelector(`[data-card="${currentCard}"]`).classList.add('active');
+                updateProgress();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // 更新进度
+        function updateProgress() {
+            const progress = (currentCard / totalCards) * 100;
+            document.getElementById('progress-fill').style.width = progress + '%';
+            document.getElementById('progress-text').textContent = `${currentCard}/${totalCards} 题`;
+        }
+
+        // 保存答案
+        function saveAnswer(questionNum) {
+            const textarea = document.querySelector(`[data-question="${questionNum}"]`);
+            if (textarea && textarea.value.trim()) {
+                answers[questionNum] = textarea.value;
+                saveToLocalStorage();
+                alert('✅ 答案已保存！');
+            } else {
+                alert('⚠️ 请先填写答案再保存');
+            }
+        }
+
+        // 完成学习
+        function completeStudy() {
+            document.querySelector(`[data-card="${currentCard}"]`).classList.remove('active');
+            document.querySelector('.completion-card').classList.add('show');
+            updateStats();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 更新统计
+        function updateStats() {
+            document.getElementById('completed-count').textContent = totalCards;
+            document.getElementById('saved-count').textContent = Object.keys(answers).length;
+            
+            const totalCheckboxes = document.querySelectorAll('.checklist input[type="checkbox"]').length;
+            const checkedCheckboxes = document.querySelectorAll('.checklist input[type="checkbox"]:checked').length;
+            const checkRate = totalCheckboxes > 0 ? Math.round((checkedCheckboxes / totalCheckboxes) * 100) : 0;
+            document.getElementById('checked-count').textContent = checkRate + '%';
+        }
+
+        // 更新自检统计
+        function updateCheckedCount() {
+            // 实时更新可以在这里添加逻辑
+        }
+
+        // 保存到本地存储
+        function saveToLocalStorage() {
+            localStorage.setItem('userOperationAnswers_fresher', JSON.stringify(answers));
+        }
+
+        // 从本地存储加载
+        function loadSavedData() {
+            const saved = localStorage.getItem('userOperationAnswers_fresher');
+            if (saved) {
+                const savedAnswers = JSON.parse(saved);
+                Object.keys(savedAnswers).forEach(key => {
+                    const textarea = document.querySelector(`[data-question="${key}"]`);
+                    if (textarea) {
+                        textarea.value = savedAnswers[key];
+                        answers[key] = savedAnswers[key];
+                    }
+                });
+            }
+        }
+
+        // 导出答案
+        function exportAnswers() {
+            if (Object.keys(answers).length === 0) {
+                alert('⚠️ 暂无已保存的答案');
+                return;
+            }
+
+            let exportText = '用户运营面试学习闪卡 - 我的答案（应届生/实习生版）\n';
+            exportText += '=' .repeat(50) + '\n\n';
+
+            const questions = [
+                '你怎么理解用户运营？',
+                '你认为用户运营的核心工作和策略是什么？',
+                '你是如何实现用户增长的？',
+                '用户运营是什么？有哪些核心本质？',
+                '如何提升用户的粘性？',
+                '你是如何实现用户转化的？',
+                '你是如何理解用户思维的？',
+                '用户画像是什么？',
+                '用户画像能为我们做什么？',
+                '你觉得用户运营岗位需要哪些能力？'
+            ];
+
+            Object.keys(answers).sort().forEach(key => {
+                const questionIndex = parseInt(key) - 1;
+                exportText += `题目 ${key}：${questions[questionIndex]}\n`;
+                exportText += '-'.repeat(50) + '\n';
+                exportText += answers[key] + '\n\n';
+            });
+
+            exportText += '=' .repeat(50) + '\n';
+            exportText += `导出时间：${new Date().toLocaleString()}\n`;
+
+            const blob = new Blob([exportText], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = '用户运营面试答案_应届生版.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // 键盘快捷键
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' && currentCard < totalCards) {
+                nextCard();
+            } else if (e.key === 'ArrowLeft' && currentCard > 1) {
+                prevCard();
+            }
+        });
+    </script>
+</body>
+</html>
